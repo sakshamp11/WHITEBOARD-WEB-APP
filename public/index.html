@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whiteBoard</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Icons/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+
+<body>
+
+    <canvas> </canvas>
+
+    <div class="mainBody">
+        <div class="menuBtn">
+            <span class="material-icons-outlined">
+                menu
+            </span>
+        </div>
+
+        <div class="penTool-Box" style="display: none;">
+            <div class="inputPentool">
+                <input type="range" min="2" to max='10' value="2" >
+            </div>
+            <div class="penToolColorOptions">
+                <div class="penToolColorBox toolColorYellow"></div>
+                <div class="penToolColorBox toolColorRed"></div>
+                <div class="penToolColorBox toolColorBlue"></div>
+            </div>
+        </div>
+
+        <div class="eraser-Box" style="display: none">
+            <div class="inputeraser">
+                <input type="range" min="3" to max='10' value="3" >
+            </div>
+           
+        </div>
+
+
+
+
+
+        <div class="toolHeader" style="display: none;">
+            <span class="material-icons-outlined pen">
+                mode_edit
+            </span>
+
+            <span class="material-icons-outlined eraser">
+                bento
+            </span>
+
+            <span class="material-icons-outlined stickyNote">
+                sticky_note_2
+            </span>
+
+            <span class="material-icons-outlined imageNotes">
+                image
+            </span>
+
+            <span class="material-icons-outlined file_download">
+                file_download
+            </span>
+
+            <span class="material-icons-outlined undo">
+                undo
+            </span>
+            <span class="material-icons-outlined redo">
+                redo
+            </span>
+        </div>
+
+    </div>
+<script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
+    <script>let socket = io.connect('https://whiteboard-16.herokuapp.com/')</script>
+    <script src="./script.js"></script>
+    <script src="./canvas.js"></script>
+</body>
+
+</html>
