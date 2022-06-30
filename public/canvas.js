@@ -156,7 +156,7 @@ function canvasDrawImageAgain(obj){
     let newImage =  new Image()
     newImage.src = imageData;
     newImage.onload = (e)=>{
-        tool.drawImage(newImage,0,0,canvas.width,canvas.height)
+        tool.drawImage(newImage,0,0)
     }
 
 
