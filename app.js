@@ -1,4 +1,7 @@
 
+// let server=app.listen(5000,()=>{
+//     console.log("kl");
+// })
 let express = require('express')
 let socket = require('socket.io')
 
@@ -10,9 +13,6 @@ let port = process.env.PORT || 5000;
 let server = app.listen(port, () => {
  console.log('app.Listern is Working');
 })
-// let server=app.listen(5000,()=>{
-//     console.log("kl");
-// })
 
 
 let io = socket(server);
@@ -30,3 +30,4 @@ io.on('connection', (socket) => {
 
 
 })
+
