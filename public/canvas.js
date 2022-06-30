@@ -154,8 +154,8 @@ function canvasDrawImageAgain(obj){
 
     let imageData = obj.canvasUndoRedoData[obj.tracker];
     let newImage =  new Image()
-    newImage.src = imageData;
-    newImage.onload = (e)=>{
+    newImage.href = imageData;
+    newImage.onload = ()=>{
         tool.drawImage(newImage,0,0)
     }
 
