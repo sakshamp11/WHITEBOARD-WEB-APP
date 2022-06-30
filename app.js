@@ -1,7 +1,5 @@
 
-// let server=app.listen(5000,()=>{
-//     console.log("kl");
-// })
+
 let express = require('express')
 let socket = require('socket.io')
 
