@@ -30,4 +30,6 @@ io.on('connection', (socket) => {
 
 
 })
-
+server.prependListener("request", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+});
