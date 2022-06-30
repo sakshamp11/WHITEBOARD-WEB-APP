@@ -152,11 +152,11 @@ redo.addEventListener('click',()=>{
 
 function canvasDrawImageAgain(obj){
 
-    let imageData = obj.canvasUndoRedoData[obj.tracker];
+    
     let newImage =  new Image()
-    newImage.href = imageData;
-    newImage.onload = ()=>{
-        tool.drawImage(newImage,0,0)
+    newImage.src = obj.canvasUndoRedoData[obj.tracker];
+    newImage.onload = (e)=>{
+        tool.drawImage(newImage,0,0.)
     }
 
 
