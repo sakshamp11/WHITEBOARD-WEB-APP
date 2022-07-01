@@ -187,9 +187,9 @@ function canvasDrawImageAgain(obj){
     let url=undoredoarray[track]
     let newimg=new Image();
     newimg.src=url
-    
+    tool.clearRect(0,0,canvas.width,canvas.height) 
     newimg.onload=(e)=>{
-        tool.clearRect(0,0,canvas.width,canvas.height)
+        
         tool.drawImage(newimg,0,0,canvas.width,canvas.height)
     }
     
