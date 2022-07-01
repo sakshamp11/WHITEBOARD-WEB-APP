@@ -11,7 +11,7 @@ let eraserColor = 'white'
 let eraserWidth = '3'
 
 let canvasUndoRedoData = []
-let tracker = 0
+let tracker =0 //represent which action to performmed
 
 let tool = canvas.getContext('2d');
 tool.strokeStyle = penColor
@@ -80,6 +80,25 @@ toolColorBlue.addEventListener('click',()=>{
     tool.strokeStyle = penColor
 
 })
+let toolColorBlack = document.querySelector('.toolColorBlack')
+toolColorBlack.addEventListener('click',()=>{
+    penColor = 'black';
+    tool.strokeStyle = penColor
+
+})
+let toolColorPink = document.querySelector('.toolColorPink')
+toolColorPink.addEventListener('click',()=>{
+    penColor = 'pink';
+    tool.strokeStyle = penColor
+
+})
+let toolColorGreen = document.querySelector('.toolColorGreen')
+toolColorGreen.addEventListener('click',()=>{
+    penColor = 'green';
+    tool.strokeStyle = penColor
+
+})
+
 
 let rangeInput = document.querySelector('.inputPentool input');
 rangeInput.addEventListener('change',()=>{
@@ -95,7 +114,8 @@ newEraser.addEventListener('click',()=>{
 
     if(isEraser){
         console.log("a");
-    tool.strokeStyle = 'white'  
+        penColor='white'
+        tool.strokeStyle =  penColor
 
     }else if(!isEraser){
 
@@ -129,18 +149,21 @@ file_download.addEventListener('click',()=>{
 let undo =  document.querySelector('.undo');
 undo.addEventListener('click',()=>{
     
-    if(tracker>0) tracker--;
-
+    if(tracker>0){ tracker--;
+      console.log(tracker);}
+    
+    
+    
       socket.emit('undoRedo', {
         tracker: tracker,
-        canvasUndoRedoData: canvasUndoRedoData,
+        canvasUndoRedoData: canvasUndoRedoData
       });
 })
 let redo =  document.querySelector('.redo');
 redo.addEventListener('click',()=>{
     
-    if(tracker<canvasUndoRedoData.length-1) tracker++;
-    console.log(tracker);
+    if(tracker<canvasUndoRedoData.length-1) {tracker++;
+    console.log(tracker);}
 
     // canvasDrawImageAgain(tracker, canvasUndoRedoData)
      socket.emit('undoRedo', {tracker:tracker,canvasUndoRedoData:canvasUndoRedoData});
@@ -153,15 +176,33 @@ redo.addEventListener('click',()=>{
 function canvasDrawImageAgain(obj){
 
     
-    let newImage =  new Image()
-    newImage.src = obj.canvasUndoRedoData[obj.tracker];
-    newImage.onload = (e)=>{
-        tool.drawImage(newImage,0,0.)
+    // let newImage =  new Image()
+    // newImage.src = obj.canvasUndoRedoData[obj.tracker];
+    // newImage.onload = function(){
+    //     tool.drawImage(newImage,0,0,canvas.width,canvas.length)
+    // }
+  
+    track=obj.tracker
+    undoredoarray=obj.canvasUndoRedoData
+    let url=undoredoarray[track]
+    let newimg=new Image();
+    newimg.src=url
+    
+    newimg.onload=(e)=>{
+        tool.clearRect(0,0,canvas.width,canvas.height)
+        tool.drawImage(newimg,0,0,canvas.width,canvas.height)
     }
-
-
-
+    
+    console.log("hys");
+    
 }
+
+
+    
+
+
+
+
 
   function beginPath(data) {
       tool.beginPath();
