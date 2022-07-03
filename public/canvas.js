@@ -8,7 +8,7 @@ let penColor = 'red'
 let penWidth = 2;
 
 let eraserColor = 'white'
-let eraserWidth = '3'
+let eraserWidth = '7'
 
 let canvasUndoRedoData = []
 let tracker =0 //represent which action to performmed
@@ -59,7 +59,11 @@ canvas.addEventListener('mouseup',()=>{
 })
 
 
-
+// let pen = document.querySelector('.pen')
+// pen.addEventListener('click',()=>{
+//     penColor="black"
+//     penWidth=3
+// })
 let toolColorYellow = document.querySelector('.toolColorYellow')
 toolColorYellow.addEventListener('click',()=>{
     penColor = 'yellow';
@@ -115,13 +119,15 @@ newEraser.addEventListener('click',()=>{
     if(isEraser){
         console.log("a");
         penColor='white'
-        tool.strokeStyle =  penColor
+        tool.strokeStyle =  "white"
+        penWidth=eraserWidth
         tool.lineWidth = eraserWidth
-
-    }else if(!isEraser){
-
-        tool.strokeStyle = penColor;
-        tool.lineWidth = eraserWidth
+    }    
+    else if(!isEraser){
+        penColor='black'
+        penWidth=3
+        tool.strokeStyle = 'black';
+        tool.lineWidth = 3
 
     }
 
@@ -131,6 +137,7 @@ newEraser.addEventListener('click',()=>{
 let eraserRange = document.querySelector('.inputeraser input');
 eraserRange.addEventListener('change',()=>{
    eraserWidth = eraserRange.value;
+    penWidth=eraserWidth
    tool.lineWidth = eraserWidth;
 })
 
