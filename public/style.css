@@ -162,13 +162,13 @@ overflow: hidden;
     width: 22px;
     margin-left: 12px;
     color: red;
-    
+    cursor: pointer;
 }
 .StickyMinimizeButton{
     height: 22px;
     width: 22px;
    color:  green;
-   
+   cursor: pointer;
     
 }
 .sticky-contentArea{
