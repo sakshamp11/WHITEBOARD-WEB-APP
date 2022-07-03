@@ -116,6 +116,7 @@ newEraser.addEventListener('click',()=>{
         console.log("a");
         penColor='white'
         tool.strokeStyle =  penColor
+        tool.lineWidth = eraserWidth
 
     }else if(!isEraser){
 
