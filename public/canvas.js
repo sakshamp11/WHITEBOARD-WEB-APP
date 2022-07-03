@@ -4,7 +4,7 @@ let canvas = document.querySelector('canvas')
 canvas.height = window.screen.height
 canvas.width = window.screen.width
 
-let penColor = 'red'
+let penColor = 'black'
 let penWidth = 2;
 
 let eraserColor = 'white'
@@ -120,7 +120,7 @@ newEraser.addEventListener('click',()=>{
         console.log("a");
         penColor='white'
         tool.strokeStyle =  "white"
-        penWidth=eraserWidth
+        penWidth=eraserWidth=8
         tool.lineWidth = eraserWidth
     }    
     else if(!isEraser){
